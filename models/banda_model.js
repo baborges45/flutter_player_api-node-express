@@ -1,8 +1,17 @@
 const mongoose = require('mongoose');
 
-const musicShema = mongoose.Schema({
+const musicaShema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
-    name: String,
-    image: String,
+    nome: String,
+    imagem: String,
     url: String
-})
+});
+
+const bandaShema = mongoose.Schema({
+    _id: mongoose.Types.ObjectId,
+    nome: String,
+    imagem: String,
+    musicas: [musicaShema]
+});
+
+module.exports = mongoose.model('Banda', bandaShema);
